@@ -13,6 +13,11 @@ def add(request):
 		answer = request.POST['answer']
 		old_num_1 = request.POST['old_num_1']
 		old_num_2 = request.POST['old_num_2']
+		if not answer:
+			return render(request, 'add.html', { 'answer': answer,
+													'num_1':num_1,
+													'num_2':num_2,
+												  })
 		
 		correct_answer = int(old_num_1) + int(old_num_2)
 		if int(answer) == correct_answer:
@@ -40,6 +45,11 @@ def subtract(request):
 		answer = request.POST['answer']
 		old_num_1 = request.POST['old_num_1']
 		old_num_2 = request.POST['old_num_2']
+		if not answer:
+			return render(request, 'subtract.html', { 'answer': answer,
+													'num_1':num_1,
+													'num_2':num_2,
+												  })
 		
 		correct_answer = int(old_num_1) - int(old_num_2)
 		if int(answer) == correct_answer:
@@ -67,6 +77,12 @@ def multiply(request):
 		answer = request.POST['answer']
 		old_num_1 = request.POST['old_num_1']
 		old_num_2 = request.POST['old_num_2']
+		if not answer:
+			return render(request, 'multiply.html', { 'answer': answer,
+													'num_1':num_1,
+													'num_2':num_2,
+												  })
+
 		
 		correct_answer = int(old_num_1) * int(old_num_2)
 		if int(answer) == correct_answer:
